@@ -1,5 +1,7 @@
 package com.xinle.kotlin;
 
+import kotlin.collections.CollectionsKt;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +30,9 @@ public class Person {
         list.add(new Person("world"));
         list.add(new Person("world"));
 
-        Map<String, List<Person>> map = list.stream().collect(Collectors.groupingBy(item -> item.name));
+        CollectionsKt.groupBy(list,Person::getName);
+
+        Map<String, List<Person>> map = list.stream().collect(Collectors.groupingBy(Person::getName));
     }
 
 
